@@ -1,0 +1,55 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+<!-- KT@HOME - 2015/12/07: Got this Error...
+Started POST "/users" for 127.0.0.1 at 2015-12-07 07:55:12 -0500
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"atBc749YrMfBEvTHWkY4v7xsKwcqmwrV+/pJjrXzOdI=", "user"=>{"email"=>"dontemail@kevinturnbull.ca", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "fName"=>"Kevin", "lName"=>"Turnbull", "address"=>"1257 Cobden Rd", "city"=>"Ottawa", "province"=>"Ontario", "postcode"=>"K2C3A", "phonenum"=>"613", "role"=>"Admin"}, "commit"=>"Sign up"}
+Unpermitted parameters: fName, lName, address, city, province, postcode, phonenum, role -->
+<!-- KT@HOME - If I don't create the new fields it won't allow me to register but the new fiels aren't seen by the controller. -->
+
+  <div class="biographic">
+    <%= text_field(:user, :fName) %>
+    <%= text_field(:user, :lName) %>
+    <%= text_field(:user, :address) %>
+    <%= text_field(:user, :city) %>
+    <%= select(:user, :province, options_from_collection_for_select(Province.all, :id, :name) ) %>
+
+    <%= text_field(:user, :postcode) %>
+    <%= text_field(:user, :phonenum) %>
+  </div>
+
+  <div class="systemic">
+    <!-- KT@HOME - ToDel: Pretty sure this is wrong because I needed a role_id 
+    <%= text_field(:user, :role) %>
+    -->
+
+    <%= text_field(:user, :role_id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

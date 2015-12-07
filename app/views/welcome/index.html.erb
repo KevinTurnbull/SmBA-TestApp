@@ -1,0 +1,13 @@
+<h1>Welcomen to Pa4kN3taq</h1>
+<p>Where <strong>every</strong> car gets ticketed.</p>
+
+<% if user_signed_in? %>
+<h2>You're Logged In!</h2>
+  Logged in as <strong><%= current_user.email %></strong>.<br />
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> | <%= link_to 'Admin Area', "/admin/index", :class => 'navbar-link' %>  | <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+<h2>You should Sign Up!</h2>
+<p>Please Sign Up Here</p><br />
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>

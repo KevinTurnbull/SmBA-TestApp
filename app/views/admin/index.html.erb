@@ -1,0 +1,34 @@
+<h2>Admin Area</h2>
+<p>This is an output of everything from the database.</p>
+<ul>
+<li>User Table
+	<ul>
+		<% User.all.each do |user| %>
+		  <li><%= user %></li>
+		<% end %>
+	</ul>
+</li>
+<li>Vehicle Table	
+	<ul>
+		<% # if Vehicle.count > 0 %>
+			<% Vehicle.all.each do |vehicle| %>
+			  <li><%= vehicle %></li>
+			<% end %>
+		<% # end %>
+	</ul>
+</li>
+<li>Province Table (Read Only)
+	<ul>
+		<% Province.all.each do |prov| %>
+		  <li><%= prov %></li>
+		<% end %>
+	</ul>
+</li>
+<li>Role Table (Read Only)
+	<ul>
+		<% Role.all.each do |role| %>
+		  <li><%= role %></li>
+		<% end %>
+	</ul>
+</li>
+</ul>

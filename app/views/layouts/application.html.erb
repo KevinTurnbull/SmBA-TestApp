@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pa4kN3taq - Where every car gets ticketed.</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- KT@HOME - TODO: Move this into an external file. -->
+  <!-- KT@HOME - 2015/12/03: I like's me a Nice 'ol Verticaly Centered narrow viewport w/ a Box Shadow. -->
+  <style type="text/css">
+		body {
+			background-color: #d1d1d1;
+			font-family: 'Lucida Console', 'Lucida Sans Typewriter', monaco, 'Bitstream Vera Sans Mono', monospace;
+		}
+
+		h1, h2, h3, p {
+			text-align: center;
+		}
+
+		.main-content {
+			margin-bottom: 50px;
+			background-image: url("/receipt-texture.jpg");
+			padding:10px;
+			-webkit-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.);
+			-moz-box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
+			box-shadow: 10px 10px 35px 0px rgba(0,0,0,0.75);
+		}
+
+		.hori_center {
+			margin: 0 auto;
+			width: 500px;
+		}
+
+		.vert_center {
+			position: absolute;
+			margin: 0 auto;
+			top: 50%;
+			-webkit-transform: translateY(-50%);
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: 	translateY(-50%);
+		}
+	</style>
+
+  	<!-- KT@HOME - Todo: Add a little styling for the Signup forms et al. -->
+  	<style type="text/css">
+
+  	</style>
+</head>
+<body>
+	<div class="notice-bar">
+		<p class="alert"><%= alert %></p>
+		<p class="notice"><%= notice %></p>
+	</div>
+	<div class="hori_center">
+	<div class="main-content">
+		<%= yield %>
+	</div>
+	</div>
+</body>
+</html>
